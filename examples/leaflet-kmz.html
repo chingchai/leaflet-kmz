@@ -37,14 +37,20 @@
 
 	<script>
 	  var map = L.map('map');
-	  map.setView(new L.LatLng(43.5978, 12.7059), 5);
+	  map.setView(new L.LatLng(13, 100), 5);
 
-	  var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-	    maxZoom: 17,
-	    attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
-	    opacity: 0.90
-	  });
-	  OpenTopoMap.addTo(map);
+	//   var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	//     maxZoom: 22,
+	//     attribution: 'Map data: &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
+	//     opacity: 0.90
+	//   });
+	//   OpenTopoMap.addTo(map);
+
+	  var ghyb = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+			maxZoom: 22,
+			attribution: '&copy; <a href="#">Google</a> contributors'
+		});
+		ghyb.addTo(map);
 
 		// Instantiate KMZ layer (async)
 		var kmz = L.kmzLayer().addTo(map);
@@ -55,15 +61,16 @@
 		});
 
 		// Add remote KMZ files as layers (NB if they are 3rd-party servers, they MUST have CORS enabled)
-		kmz.load('https://raruto.github.io/leaflet-kmz/examples/regions.kmz');
-		kmz.load('https://raruto.github.io/leaflet-kmz/examples/capitals.kmz');
-		kmz.load('https://raruto.github.io/leaflet-kmz/examples/globe.kmz');
-		kmz.load('https://raruto.github.io/leaflet-kmz/examples/etna.kmz');
+		// kmz.load('regions.kmz');
+		// kmz.load('capitals.kmz');
+		// kmz.load('globe.kmz');
+		// kmz.load('etna.kmz');
+		kmz.load('wp1822.kmz');
 
 	  var control = L.control.layers(null, null, { collapsed:false }).addTo(map);
 	</script>
 
-	<a href="https://github.com/Raruto/leaflet-kmz" class="view-on-github" style="position: fixed;top: 10px;left: calc(50% - 60px);z-index: 9999;" > <img alt="View on Github" src="https://raruto.github.io/img/view-on-github.png" title="View on Github" width="163"> </a>
+	<!-- <a href="https://github.com/Raruto/leaflet-kmz" class="view-on-github" style="position: fixed;top: 10px;left: calc(50% - 60px);z-index: 9999;" > <img alt="View on Github" src="https://raruto.github.io/img/view-on-github.png" title="View on Github" width="163"> </a> -->
 
 </body>
 
